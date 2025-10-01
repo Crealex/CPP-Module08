@@ -99,10 +99,9 @@ int main(void)
 
 	// ---------- CONST VECTOR ----------
 
-	const std::vector<int> vect_c;
+	const std::vector<int> vect_c(5, 42);
 
 	std::cout << BOLD << "*** TRY WITH A CONST VECTOR ***" << RESET << std::endl;
-	std::cout << "vect_c: " << " (impossible to push elements in const container)" << std::endl;
 	::printContainer(vect_c);
 	try
 	{
