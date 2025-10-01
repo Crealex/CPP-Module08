@@ -1,8 +1,8 @@
-NAME = brain
-SRCS = main.cpp 
+NAME	= easyfind
+SRCS	= main.cpp
 OBJS	=	${SRCS:%.cpp=${OBJDIR}/%.o}
-
-CFLAGS = -Werror -Wextra -Wall -std=c++98
+OBJDIR	= objets
+CFLAGS	= -Werror -Wextra -Wall -std=c++98
 CC = c++
 
 # Colors and style
@@ -26,7 +26,7 @@ ${NAME}:	${OBJS}
 	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
-${OBJDIR}/%.o: %.c | ${OBJDIR}
+${OBJDIR}/%.o: %.cpp | ${OBJDIR}
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
 	@printf "${BOLD}${L_PURPLE}⚡ [%2d/%2d] Compiling: %-20s ${END}" $(CURRENT_FILE) $(TOTAL_FILES) "$<"
 	@${CC} ${CFLAGS} -c -o $@ $<
@@ -54,8 +54,8 @@ re: fclean all
 
 display_ascii:
 	@echo "$(BOLD)$(GREEN)"
-	@if [ -f ascii_art.txt ]; then \
-		cat ascii_art.txt; \
+	@if [ -f ../ascii_art.txt ]; then \
+		cat ../ascii_art.txt; \
 	fi
 	@echo "$(END)"
 	@echo "${BOLD}${L_PURPLE} ✨CPP-Module08-ex00✨ ${GREEN}is ready 🎉 ${END}"
