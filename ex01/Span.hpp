@@ -5,6 +5,7 @@
 # include <iostream>
 # include <set>
 # include <algorithm>
+# include <stdexcept>
 
 class Span
 {
@@ -12,7 +13,7 @@ class Span
 		unsigned int		_N;
 		std::multiset<int>	_multiset;
 
-		static void	printNum(std::multiset<int>::iterator it);
+		static void	printNum(int it);
 
 	public:
 		// CONSTRUCTOR/DESTRUCTOR
@@ -27,6 +28,9 @@ class Span
 		// METHODS
 		void	addNumber(int n);
 		void	printMultiset() const;
+		int		shortestSpan() const;
+		int		longestSpan() const;
+
 };
 
 #endif
