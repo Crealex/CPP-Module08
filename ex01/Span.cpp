@@ -52,23 +52,31 @@ void Span::printMultiset() const
 {
 	std::cout << "multiset: ";
 	std::for_each(this->_multiset.begin(), this->_multiset.end(), printNum);
-	std::cout << "end: " << *this->_multiset.end() << std::endl;
 	std::cout << std::endl;
 }
 
-int Span::shortestSpan() const
+int Span::shortestSpan() const // Check les trucs de gpt
 {
+	int	smallest;
+	std::multiset<int>::iterator it = this->_multiset.begin();
+	std::multiset<int>::iterator nextIt = it;
+
 	if (this->_multiset.size() <= 1)
 		throw std::length_error(RED "Error, too few elements" RESET);
-		// to continue
-	return (0);
+	nextIt++;
+	smallest = *nextIt - *it;
+	while (nextIt != this->_multiset.end())
+	{
+		smallest = std::min(smallest, *nextIt - *it);
+		it++;
+		nextIt++;
+	}
+	return (smallest);
 }
 
 int Span::longestSpan() const
 {
 	if (this->_multiset.size() <= 1)
 		throw std::length_error(RED "Error, too few elements" RESET);
-	std::cout << "end: " << *this->_multiset.end() << " begin: " << *this->_multiset.begin() << std::endl;
-	this->printMultiset();
-	return (*this->_multiset.end() - *this->_multiset.begin());
+	return (*this->_multiset.rbegin() - *this->_multiset.begin());
 }

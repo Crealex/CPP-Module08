@@ -2,7 +2,7 @@ NAME	= span
 SRCS	= main.cpp Span.cpp
 OBJS	=	${SRCS:%.cpp=${OBJDIR}/%.o}
 OBJDIR	= objets
-CFLAGS	= -Werror -Wextra -Wall -std=c++98
+CFLAGS	= -Werror -Wextra -Wall -std=c++98 -g
 CC = c++
 
 # Colors and style
