@@ -41,6 +41,7 @@ void Span::addNumber(int n)
 	if (this->_N <= this->_multiset.size())
 		throw std::length_error(RED "Error, multiset if full" RESET);
 	this->_multiset.insert(n);
+	std::cout << GREEN << n << " added!" << std::endl;
 }
 
 void Span::printNum(const int it)
