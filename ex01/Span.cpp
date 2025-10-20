@@ -39,7 +39,7 @@ Span &Span::operator=(const Span &rhs)
 void Span::addNumber(int n)
 {
 	if (this->_N <= this->_multiset.size())
-		throw std::length_error(RED "Error, multiset if full" RESET);
+		throw std::length_error(RED "Error, multiset is full" RESET);
 	this->_multiset.insert(n);
 	std::cout << GREEN << n << " added!" << std::endl;
 }
@@ -56,7 +56,7 @@ void Span::printMultiset() const
 	std::cout << std::endl;
 }
 
-int Span::shortestSpan() const // Check les trucs de gpt
+unsigned int Span::shortestSpan() const // Check les trucs de gpt
 {
 	int	smallest;
 	std::multiset<int>::iterator it = this->_multiset.begin();
@@ -75,7 +75,7 @@ int Span::shortestSpan() const // Check les trucs de gpt
 	return (smallest);
 }
 
-int Span::longestSpan() const
+unsigned int Span::longestSpan() const
 {
 	if (this->_multiset.size() <= 1)
 		throw std::length_error(RED "Error, too few elements" RESET);

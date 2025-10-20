@@ -31,11 +31,11 @@ class Span
 	// METHODS
 	void	addNumber(int n);
 	template<typename T>
-	void	addNumbers(T start, T);
+	void	addNumbers(T start, T end);
 
 	void	printMultiset() const;
-	int		shortestSpan() const;
-	int		longestSpan() const;
+	unsigned int		shortestSpan() const;
+	unsigned int		longestSpan() const;
 
 };
 
