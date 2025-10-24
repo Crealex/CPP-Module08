@@ -25,10 +25,13 @@ MutantStack<T>::~MutantStack()
 template<typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack &rhs)
 {
-	if (*this != rhs)
-		this->c.operator=(rhs);
 	std::cout << CYAN <<"Assignment operator overloaded of MustantStack called" << RESET << std::endl;
+	if (this != &rhs)
+		this->c = rhs.c;
 	return (*this);
+	// ALTERNATIVE :
+	// if (this != &rhs)
+	// 	std::stack<T>::operator=(rhs);
 }
 
 // *** ITERATOR ***
@@ -81,4 +84,18 @@ template<typename T>
 typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const
 {
 	return (this->c.rend());
+}
+
+template<typename T>
+void MutantStack<T>::printMs()
+{
+	iterator it = this->begin();
+	iterator ite = this->end();
+
+	for (iterator i = it; i != ite; i++)
+	{
+		std::cout << *i << " ";
+	}
+	std::cout << std::endl;
+
 }
