@@ -1,4 +1,4 @@
-NAME	= span
+NAME	= mutantstack
 SRCS	= main.cpp
 OBJS	=	${SRCS:%.cpp=${OBJDIR}/%.o}
 OBJDIR	= objets
@@ -58,5 +58,5 @@ display_ascii:
 		cat ../ascii_art.txt; \
 	fi
 	@echo "$(END)"
-	@echo "${BOLD}${L_PURPLE} ✨CPP-Module08-ex01✨ ${GREEN}is ready 🎉 ${END}"
+	@echo "${BOLD}${L_PURPLE} ✨CPP-Module08-ex02✨ ${GREEN}is ready 🎉 ${END}"
 	@echo "${BOLD}${BLUE}➜ Use ./${NAME} to run the program${END}"
