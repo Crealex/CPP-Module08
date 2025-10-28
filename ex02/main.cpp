@@ -4,7 +4,8 @@
 
 void test_deque()
 {
-	std::cout << BOLD << "*** TEST WITH DEQUE CONTAINER ***" << RESET << std::endl;
+	std::cout << BOLD << "*** TEST WITH DEQUE CONTAINER ***" << RESET
+			  << std::endl;
 	std::deque<int> dq;
 	dq.push_back(5);
 	dq.push_back(17);
@@ -59,9 +60,9 @@ void test_list()
 	std::cout << std::endl;
 	std::list<int> s(dq);
 }
-void	canonical_test()
+void canonical_test()
 {
-	std::cout << BOLD << "*** CANONICAL TESTS ***" << RESET <<std::endl;
+	std::cout << BOLD << "*** CANONICAL TESTS ***" << RESET << std::endl;
 	MutantStack<double> mstack;
 	MutantStack<double> mstack2;
 
@@ -88,13 +89,47 @@ void	canonical_test()
 	mstack2.printMs();
 	std::cout << "first mstack: " << std::endl;
 	mstack.printMs();
+}
 
+void test_ms_string()
+{
+	std::cout << BOLD << "*** TEST OPERATIONS OF MUTANTSTACK WITH STRING" << RESET << std::endl;
+	MutantStack<std::string> mstack;
+	std::string s1 = "pipou";
+	std::string s2 = "pipon";
+	std::string s3 = "pipo";
+	std::string s4 = "pipol";
+	std::string s5 = "pipasse";
+	std::string s6 = "pipox";
+	mstack.push(s1);
+	mstack.push(s2);
+	std::cout << "print top: ";
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << "print size: ";
+	std::cout << mstack.size() << std::endl;
+	mstack.push(s3);
+	mstack.push(s4);
+	mstack.push(s5);
+	mstack.push(s6);
+	MutantStack<std::string>::iterator it = mstack.begin();
+	MutantStack<std::string>::iterator ite = mstack.end();
+	++it;
+	--it;
+	std::cout << "print all the container: ";
+	while (it != ite)
+	{
+		std::cout << *it << " ";
+		++it;
+	}
+	std::cout << std::endl;
+	std::stack<std::string> s(mstack);
 }
 
 int main()
 {
 	canonical_test();
-	std::cout << BOLD << "*** TEST OPERATIONS OF MUTANTSTACK ***" << RESET << std::endl;
+	std::cout << BOLD << "*** TEST OPERATIONS OF MUTANTSTACK with int ***" << RESET << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -121,5 +156,6 @@ int main()
 	std::stack<int> s(mstack);
 	test_deque();
 	test_list();
+	test_ms_string();
 	return 0;
 }
